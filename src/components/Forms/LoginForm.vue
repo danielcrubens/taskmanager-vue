@@ -2,14 +2,14 @@
   <form @submit.prevent="handleLogin">
     <div class="mb-4 relative">
       <input id="email" v-model="email"
-        class="my-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
+        class="mt-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
         placeholder="Insira seu e-mail">
       <p v-if="errorEmail" class="text-red-500 text-sm absolute -bottom-2">{{ errorEmail }}</p>
     </div>
 
     <div class="mb-4 relative">
       <input id="password" v-model="password"
-        class="my-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
+        class="w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
         type="password" placeholder="Insira sua senha">
       <p v-if="errorPassword" class="text-red-500 text-sm absolute -bottom-2">{{ errorPassword }}</p>
     </div>

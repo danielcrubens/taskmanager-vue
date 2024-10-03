@@ -2,21 +2,21 @@
   <form @submit.prevent="handleRegister">
     <div class="mb-4 relative">
       <input id="name" v-model="name"
-        class="my-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
+        class="mt-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
         type="text" placeholder="Insira seu nome" />
       <p v-if="errorName" class="text-red-500 text-sm absolute -bottom-2">{{ errorName }}</p>
     </div>
 
     <div class="mb-4 relative">
       <input id="email" v-model="email"
-        class="my-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
+        class="w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
         type="email" placeholder="Insira seu melhor e-mail" />
       <p v-if="errorEmail" class="text-red-500 text-sm absolute -bottom-2">{{ errorEmail }}</p>
     </div>
 
     <div class="mb-4 relative">
       <input id="password" v-model="password"
-        class="my-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
+        class="w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
         type="password" placeholder="Insira uma senha" />
       <p v-if="errorPassword" class="text-red-500 text-sm absolute -bottom-2">{{ errorPassword }}</p>
     </div>
