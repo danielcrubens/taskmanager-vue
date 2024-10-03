@@ -1,21 +1,21 @@
 <template>
   <form @submit.prevent="handleLogin">
-    <div class="mb-4 relative">
+    <div class="mb-5 relative">
       <input id="email" v-model="email"
         class="mt-3 w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
         placeholder="Insira seu e-mail">
-      <p v-if="errorEmail" class="text-red-500 text-sm absolute -bottom-2">{{ errorEmail }}</p>
+      <p v-if="errorEmail" class="text-red-500 text-sm absolute -bottom-4">{{ errorEmail }}</p>
     </div>
 
-    <div class="mb-4 relative">
+    <div class="mb-5 relative">
       <input id="password" v-model="password"
         class="w-full rounded-md border-solid border-2 text-dark border-zinc-300 p-2.5 text-md shadow-sm outline-none"
         type="password" placeholder="Insira sua senha">
-      <p v-if="errorPassword" class="text-red-500 text-sm absolute -bottom-2">{{ errorPassword }}</p>
+      <p v-if="errorPassword" class="text-red-500 text-sm absolute top-11">{{ errorPassword }}</p>
     </div>
 
     <button
-      class="bg-dark hover:brightness-125 text-white flex items-center justify-center mx-auto rounded-md py-2 px-12"
+      class="bg-dark  hover:brightness-125 text-white flex items-center justify-center mx-auto rounded-md py-2 px-12"
       type="submit" :disabled="authStore.loading">
       {{ authStore.loading ? 'Loading...' : 'Entrar' }}
     </button>
