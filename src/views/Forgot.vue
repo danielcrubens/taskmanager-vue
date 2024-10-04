@@ -30,12 +30,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useAuthStore } from '../stores/auth'
-import { useRouter } from 'vue-router'
 import { useToast } from "vue-toastification"
 import { z } from 'zod'
 
 const authStore = useAuthStore()
-const router = useRouter()
 const toast = useToast()
 const email = ref('')
 const errorEmail = ref('')
@@ -70,7 +68,6 @@ const sendPasswordReset = async () => {
     if (authStore.resetEmailSent) {
       toast.success("E-mail de recuperação enviado com sucesso!", {
         timeout: 3700,
-        position: "top-right",
         pauseOnFocusLoss: false,
         pauseOnHover: false,
         closeButton: false,
@@ -79,7 +76,6 @@ const sendPasswordReset = async () => {
   } catch (error) {
     toast.error(authStore.error || "Erro ao enviar e-mail de recuperação", {
       timeout: 3700,
-      position: "top-right",
       pauseOnFocusLoss: false,
       pauseOnHover: false,
       closeButton: false,
