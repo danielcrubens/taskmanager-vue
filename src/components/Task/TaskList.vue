@@ -2,9 +2,8 @@
 import { onMounted } from 'vue';
 import { useTaskStore } from '@/stores/task';
 import TaskItem from './TaskItem.vue';
-import TaskForm from './TaskForm.vue';
 
-import { TabsContent, TabsIndicator, TabsList, TabsRoot, TabsTrigger } from 'radix-vue'
+import { TabsContent, TabsList, TabsRoot, TabsTrigger } from 'radix-vue'
 const taskStore = useTaskStore();
 
 onMounted(() => {
@@ -25,8 +24,7 @@ onMounted(() => {
       <TabsRoot default-value="Todos" class="w-full">
         <TabsList class="mb-4 flex lg:space-x-7 space-x-2 rounded-md bg-muted p-1">
           <TabsTrigger v-for="tab in ['Todos', 'Pendentes', 'Completos']" :key="tab" :value="tab"
-            class="w-full rounded-md py-2.5 text-sm font-medium leading-5 bg-zinc-200 hover:brightness-95 text-dark text-md"
-            :class="{ 'bg-red-500 text-foreground shadow': modelValue === tab }">
+            class="w-full rounded-md py-2.5 text-sm font-medium leading-5 bg-zinc-200 shadow-md hover:brightness-95 text-dark text-md data-[state=active]:bg-orange  data-[state=active]:text-white data-[state=active]:shadow-lg">
             {{ tab }}
             ({{
               tab === 'Todos'
