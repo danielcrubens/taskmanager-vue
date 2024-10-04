@@ -35,7 +35,7 @@ router.beforeEach((to, _, next) => {
   if (to.meta.requiresAuth && !authStore.user) {
     next('/')
   } else if (to.meta.requiresGuest && authStore.user) {
-    next('/dashboard')
+    next('/tasks')
   } else {
     next()
   }
