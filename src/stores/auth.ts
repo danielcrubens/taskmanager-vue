@@ -1,10 +1,10 @@
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
-import type { User } from 'firebase/auth'
-import { useAuth } from '../composables/useAuth'
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
+import type { User as FirebaseUser } from 'firebase/auth';
+import { useAuth } from '../composables/useAuth';
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref<User | null>(null)
+  const user = ref<FirebaseUser | null>(null); 
   const {
     loading,
     error,
@@ -15,47 +15,50 @@ export const useAuthStore = defineStore('auth', () => {
     logoutUser,
     resetUserPassword,
     initAuthListener
-  } = useAuth()
+  } = useAuth();
 
   const init = () => {
     initAuthListener((firebaseUser) => {
-      user.value = firebaseUser
-    })
-  }
+      if (firebaseUser) {
+        user.value = firebaseUser;
+      } else {
+        user.value = null; 
+      }
+    });
+  };
 
   const register = async (name: string, email: string, password: string) => {
     try {
-      const newUser = await registerUser(email, password)
+      const newUser = await registerUser(email, password);
       if (newUser) {
-        await updateUserProfile(newUser, name)
-        user.value = newUser
+        await updateUserProfile(newUser, name);
+        user.value = newUser;
       }
     } catch (e) {
-      // Error já está sendo tratado no composable
     }
-  }
+  };
 
   const login = async (email: string, password: string) => {
     try {
-      const loggedUser = await loginUser(email, password)
-      user.value = loggedUser
+      const loggedUser = await loginUser(email, password);
+      if (loggedUser) {
+        user.value = loggedUser;
+      }
     } catch (e) {
-      // Error já está sendo tratado no composable
     }
-  }
+  };
 
   const logout = async () => {
     try {
-      await logoutUser()
-      user.value = null
+      await logoutUser();
+      user.value = null;
     } catch (e) {
-      // Error já está sendo tratado no composable
     }
-  }
+  };
 
   const resetPassword = async (email: string) => {
-    await resetUserPassword(email)
-  }
+    await resetUserPassword(email);
+  };
 
   return {
     user,
@@ -67,5 +70,5 @@ export const useAuthStore = defineStore('auth', () => {
     login,
     logout,
     resetPassword
-  }
-})
+  };
+});
