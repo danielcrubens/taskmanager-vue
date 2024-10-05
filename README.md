@@ -193,7 +193,7 @@ Rode a aplicação
 npm run dev
 ```
 
-deploy firebase
+Deploy firebase
 
 ```
 firebase login
@@ -208,7 +208,7 @@ firebase init
 firebase deploy
 ```
 
-deploy variaveis de ambiente
+Deploy variaveis de ambiente
 
 ```
 firebase functions:config:set myfirebase.api_key=
@@ -220,7 +220,7 @@ firebase functions:config:set myfirebase.app_id="
 firebase functions:config:set myfirebase.measurement_id="
 
 ```
-verificar se está tudo ok com as configurações
+Verificar se está tudo ok com as configurações
 
 ```
 firebase functions:config:get
